@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ForumController!{% endblock %}
+
+{% block body %}
+<section class="categories">
+    {% for categorie in categories %}
+        <article>
+            <h2>{{ categorie.getNomCate() }}</h2>
+        </articles>
+    {% endfor %}
+</section>
+{% endblock %}
