@@ -16,11 +16,12 @@ class ForumController extends AbstractController
      */
     public function index(): Response
     {
-        $repo = $this->getDoctrine()->getRepository(Categorie::class);
-        $categories = $repo->findAll();
+        $categories = $this->getDoctrine()->getRepository(Categorie::class)->findAll();
+        //$topics = $this->getDoctrine()->getRepository(Topic::class)->findBy(["idCate" => $idCategorie]);
         return $this->render('forum/index.html.twig', [
             'controller_name' => 'ForumController',
-            'categories' => $categories
+            'categories' => $categories,
+            //'topics' => $topics
         ]);
     }
 
