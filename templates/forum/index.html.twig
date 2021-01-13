@@ -7,6 +7,7 @@
     {% for categorie in categories %}
         <article>
             <h2>{{ categorie.getNomCate() }}</h2>
+            <a href="{{ path('categorie', {'idCategorie': categorie.getId()}) }}" classe="btn btn-primary">go</a>
         </articles>
     {% endfor %}
 </section>

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ForumController!{% endblock %}
+
+{% block body %}
+<section class="topics">
+    {% for topic in topics %}
+        <article>
+            <h3>{{ topic.getTitreTopic() }}</h3>
+            <a href="{{ path('topic', {'idTopic': topic.getId()}) }}" classe="btn btn-primary">go</a>
+        </articles>
+    {% endfor %}
+</section>
+{% endblock %}
