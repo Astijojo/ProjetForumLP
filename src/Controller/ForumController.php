@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ForumController extends AbstractController
 {
     /**
-     * @Route("/forum", name="forum")
+     * @Route("/", name="forum")
      */
     public function index(): Response
     {
@@ -26,14 +26,7 @@ class ForumController extends AbstractController
     }
 
     /**
-     * @Route("/", name="home")
-     */
-    public function home() {
-        return $this->render('forum/home.html.twig');
-    }
-
-    /**
-     * @Route("/forum/categorie/{idCategorie}", name="categorie")
+     * @Route("/categorie/{idCategorie}", name="categorie")
      */
     public function showPost($idCategorie){
         $repo = $this->getDoctrine()->getRepository(Topic::class);
@@ -45,7 +38,7 @@ class ForumController extends AbstractController
     }
 
     /**
-     *@Route("/forum/topic/{idTopic}", name="topic")
+     *@Route("/topic/{idTopic}", name="topic")
      */
     public function showMessage($idTopic){
         $repo = $this->getDoctrine()->getRepository(Message::class);
@@ -59,10 +52,24 @@ class ForumController extends AbstractController
     }
 
     /**
-     *@Route("/forum/categorie/topic/{idTopic}", name="newTopic")
+     *@Route("/categorie/topic/{idTopic}", name="newTopic")
      */
     public function createTopic(){
         return $this->render('forum/createTopic.html.twig');
+    }
+
+    /**
+     *@Route("/login", name="userLogin")
+     */
+    public function userLogin(){
+        return $this->render('forum/userLogin.html.twig');
+    }
+
+    /**
+     *@Route("/register", name="userRegister")
+     */
+    public function userRegister(){
+        return $this->render('forum/userRegister.html.twig');
     }
 
 }
