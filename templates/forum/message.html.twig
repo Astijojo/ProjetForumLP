@@ -1,26 +1,5 @@
 {% extends 'base.html.twig' %}
 
-<<<<<<< HEAD
-{% block title %}Hello ForumController!{% endblock %}
-
-{% block body %}
-<section class="topic">
-    {% for oui in topic %}
-    <article>
-        <p>{{ oui.getContenuTopic() }}</p>
-    </articles>
-    {% endfor %}
-</section>
-
-
-<section class="messages">
-    {% for message in messages %}
-        <article>
-            <p>{{ message.getContenuMess() }}</p>
-        </articles>
-    {% endfor %}
-</section>
-=======
 {% block content %}
     <div class="container">
         <div class="row">
@@ -31,5 +10,4 @@
             {% endfor %}
         </div>
     </div>
->>>>>>> 34134940804bf731e040348e48bc656eb2365129
 {% endblock %}
