@@ -1,0 +1,13 @@
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+$primary: darken(#428bca, 20%);
+body {
+  padding-top: 55px;
+}
+.topics .jumbotron {
+  padding-bottom: 1em;
+  padding-top: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
