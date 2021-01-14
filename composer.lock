@@ -5096,9 +5096,6 @@
             "time": "2020-12-08T17:02:38+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "symfony/security-guard",
-=======
             "name": "symfony/webpack-encore-bundle",
             "version": "v1.8.0",
             "source": {
@@ -5171,7 +5168,6 @@
         },
         {
             "name": "symfony/yaml",
->>>>>>> 34134940804bf731e040348e48bc656eb2365129
             "version": "v5.2.1",
             "source": {
                 "type": "git",
