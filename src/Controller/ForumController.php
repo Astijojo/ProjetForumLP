@@ -44,14 +44,24 @@ class ForumController extends AbstractController
     }
 
     /**
-     *@Route("/forum/categorie/topic/{idTopic}", name="topic")
+     *@Route("/forum/topic/{idTopic}", name="topic")
      */
     public function showMessage($idTopic){
         $repo = $this->getDoctrine()->getRepository(Message::class);
+        $topic = $this->getDoctrine()->getRepository(Topic::class)->findBy(["id" => $idTopic]);
         $messages = $repo->findBy(["idTopic" => $idTopic]);
         return $this->render('forum/message.html.twig', [
             'controller_name' => 'ForumController',
             'messages' => $messages,
+            'topic' => $topic
         ]);
     }
+
+    /**
+     *@Route("/forum/categorie/topic/{idTopic}", name="newTopic")
+     */
+    public function createTopic(){
+        return $this->render('forum/createTopic.html.twig');
+    }
+
 }

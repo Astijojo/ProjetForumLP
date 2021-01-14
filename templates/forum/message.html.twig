@@ -3,6 +3,15 @@
 {% block title %}Hello ForumController!{% endblock %}
 
 {% block body %}
+<section class="topic">
+    {% for oui in topic %}
+    <article>
+        <p>{{ oui.getContenuTopic() }}</p>
+    </articles>
+    {% endfor %}
+</section>
+
+
 <section class="messages">
     {% for message in messages %}
         <article>
