@@ -58,4 +58,13 @@ class ForumController extends AbstractController
     public function createTopic(){
         return $this->render('forum/createTopic.html.twig');
     }
+
+    /**
+     *@Route("/profile", name="profileInterface")
+     */
+    public function profileInterface(){
+        return $this->render('base.html.twig');
+    }
+
+
 }

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'utilisateur{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <a type="button" class="btn btn-sm btn-outline-secondary" href="/admin/utilisateurs">Retour</a>
+        <h2>Modifier l'utilisateur</h2>
+        <div class="alert alert-danger" role="alert">En cours d'implantation</div>
+        {{ form(userForm) }}
+    </div>
+{% endblock %}
