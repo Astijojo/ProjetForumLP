@@ -41,14 +41,22 @@
                     </div>
                 </div>
             {% endfor %}
+            {% if app.user.username is defined %}
+                <div class="jumbotron border bg-light ">
+                    <div class="container lg-12">
+                        <form>
+                            <h5>Répondre</h5>
+                            <div class="form-group">
+                                <textarea type="text" class="form-control" id="titre" placeholder="Votre message" maxlength="100" minlength="2" required></textarea>
+                                <small id="emailHelp" class="form-text text-muted">500 caractères max.</small>
+                            </div>
+                            <div class="input-group-append">
+                                <a type="button" class="btn btn btn-primary">Envoyer</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
         </div>
-        {% if app.user.username is defined %}
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Votre message" aria-label="Votre message" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <a type="button" class="btn btn btn-primary" href="#">Envoyer</a>
-            </div>
-        </div>
-        {% endif %}
     </div>
 {% endblock %}

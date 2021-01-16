@@ -26,8 +26,10 @@
                     <ul class="navbar-nav mr-auto">
                     </ul>
                     {% if app.user.username is defined %}
+                        <button type="button" class="btn btn-dark" disabled>{{ app.user.username }}</button>
                         <a class="btn btn-primary my-2 my-sm-0" href="/logout" role="button"">Se déconnecter</a>
                     {% else %}
+                        <button type="button" class="btn btn-dark" disabled>Invité</button>
                         <a class="btn btn-primary my-2 my-sm-0" href="/login" role="button"">Se connecter</a>
                     {% endif %}
                 </div>

@@ -18,8 +18,27 @@
                     </p>
                     <p>(recupérer le nom d'user) le {{topic.getDateHeureTopic|date("m/d/Y")}} à {{topic.getDateHeureTopic|date("H:i")}}</p>
                 </div>
+
             </div>
             {% endfor %}
+            {% if app.user.username is defined %}
+                <div class="jumbotron border bg-light">
+                    <div class="container lg-12">
+                        <form>
+                            <h5>Créer un nouveau sujet</h5>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="titre" placeholder="Votre titre" maxlength="100" minlength="2" required>
+                                <small id="emailHelp" class="form-text text-muted">100 caractères max.</small>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" cols="150" rows="5" placeholder="Votre message" maxlength="500" minlength="2"></textarea>
+                                <small id="emailHelp" class="form-text text-muted">500 caractères max.</small>
+                            </div>
+                            <a type="submit" class="btn btn btn-primary">Envoyer</a>
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
