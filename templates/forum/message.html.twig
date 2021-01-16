@@ -42,12 +42,13 @@
                 </div>
             {% endfor %}
         </div>
-        (ne s'affiche que si user logged)
+        {% if app.user.username is defined %}
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Votre message" aria-label="Votre message" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <a type="button" class="btn btn btn-primary" href="#">Envoyer</a>
             </div>
         </div>
+        {% endif %}
     </div>
 {% endblock %}

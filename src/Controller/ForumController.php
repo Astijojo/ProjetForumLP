@@ -8,6 +8,7 @@ use App\Entity\Topic;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class ForumController extends AbstractController
 {
@@ -57,19 +58,4 @@ class ForumController extends AbstractController
     public function createTopic(){
         return $this->render('forum/createTopic.html.twig');
     }
-
-    /**
-     *@Route("/login", name="userLogin")
-     */
-    public function userLogin(){
-        return $this->render('forum/userLogin.html.twig');
-    }
-
-    /**
-     *@Route("/register", name="userRegister")
-     */
-    public function userRegister(){
-        return $this->render('forum/userRegister.html.twig');
-    }
-
 }

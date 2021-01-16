@@ -25,17 +25,27 @@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
                     </ul>
-                    <a class="btn btn-primary my-2 my-sm-0" href="/login" role="button"">Se connecter</a>
+                    {% if app.user.username is defined %}
+                        <a class="btn btn-primary my-2 my-sm-0" href="/logout" role="button"">Se déconnecter</a>
+                    {% else %}
+                        <a class="btn btn-primary my-2 my-sm-0" href="/login" role="button"">Se connecter</a>
+                    {% endif %}
                 </div>
             </nav>
         {% endblock %}
         <main role="main">
             <div class="jumbotron">
-                <div class="container">
-                    <h1 class="display-3">Bienvenue sur notre forum !</h1>
-                    <p>Le télétravail, les cours à distance... Ce n'est pas votre tasse de thé ? Venez perdre votre temps avec nous !</p>
-                    <p><a class="btn btn-primary btn-lg" href="/register" role="button">S'inscrire &raquo;</a></p>
-                </div>
+                {% if app.user.username is defined %}
+                    <div class="container">
+                        <h1 class="display-3">Bienvenue {{ app.user.username }} 🔥</h1>
+                    </div>
+                {% else %}
+                    <div class="container">
+                        <h1 class="display-3">Bienvenue jeune thrasher 🔥</h1>
+                        <h3>Tu aimes le skate 🛹 et faire du sale ? Viens partager ta passion avec nous !</h3>
+                        <p><a class="btn btn-primary btn-lg" href="/register" role="button">S'inscrire &raquo;</a></p>
+                    </div>
+                {% endif %}
             </div>
             {% block content %}
                 {# Enfant #}
