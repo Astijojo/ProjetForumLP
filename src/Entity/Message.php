@@ -28,6 +28,11 @@ class Message
     private $idUser;
 
     /**
+     * @ORM\Column(type="string", length=255,  nullable=true)
+     */
+    private $pseudoUser;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $contenuMess;
@@ -62,6 +67,18 @@ class Message
     public function setIdUser(int $idUser): self
     {
         $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    public function getPseudoUser(): ?string
+    {
+        return $this->pseudoUser;
+    }
+
+    public function setPseudoUser(string $pseudoUser): self
+    {
+        $this->pseudoUser = $pseudoUser;
 
         return $this;
     }

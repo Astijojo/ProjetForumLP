@@ -28,6 +28,11 @@ class Topic
     private $idUser;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pseudoUser;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $titreTopic;
@@ -67,6 +72,18 @@ class Topic
     public function setIdUser(int $idUser): self
     {
         $this->idUser = $idUser;
+
+        return $this;
+    }
+
+    public function getPseudoUser(): ?string
+    {
+        return $this->pseudoUser;
+    }
+
+    public function setPseudoUser(string $pseudoUser): self
+    {
+        $this->pseudoUser = $pseudoUser;
 
         return $this;
     }
