@@ -98,7 +98,7 @@ class ForumController extends AbstractController
         return $this->render('forum/message.html.twig', [
             'controller_name' => 'ForumController',
             'messages' => $messages,
-            'topic' => $topic,
+            'topics' => $topic,
             'formMessage' => $form->createView()
         ]);
     }
@@ -107,7 +107,7 @@ class ForumController extends AbstractController
      *@Route("/profile", name="profileInterface")
      */
     public function profileInterface(){
-        return $this->render('base.html.twig');
+        return $this->render('profile/index.html.twig');
     }
 
 
