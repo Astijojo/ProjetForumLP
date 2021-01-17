@@ -98,7 +98,7 @@ class ForumController extends AbstractController
         return $this->render('forum/message.html.twig', [
             'controller_name' => 'ForumController',
             'messages' => $messages,
-            'topic' => $topic,
+            'topics' => $topic,
             'formMessage' => $form->createView()
         ]);
     }
