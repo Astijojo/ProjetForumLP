@@ -5,12 +5,14 @@ namespace App\Controller;
 use App\Entity\Categorie;
 use App\Entity\Message;
 use App\Entity\Topic;
+use App\Repository\MessageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -108,6 +110,19 @@ class ForumController extends AbstractController
      */
     public function profileInterface(){
         return $this->render('profile/index.html.twig');
+    }
+
+    /**
+     *@Route("/topic/supprimer/{idMessage}", name="supprimer_message")
+     */
+    public function supprimerMessage(Message $message){
+        $em = $this->getDoctrine()->getManager(); 
+        $em->remove($message);
+        $em->flush();
+        
+        return $this->render('forum/delete.html.twig',[
+            'em' => $em
+        ]);
     }
 
 
