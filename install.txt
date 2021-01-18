@@ -1,0 +1,11 @@
+Pour le faire fonctionner le site localement, vous devrez effectuer les commandes suivantes :
+•	composer install
+•	npm install
+•	npm run encore dev
+
+Vous pouvez utiliser les deux comptes utilisateurs suivants :
+•	Utilisateur (login) / azerty45 (mdp) --> Compte privilèges utilisateur
+•	Administrateur (login) / azerty45 (mdp) --> Compte privilèges administrateur
+
+Par défaut, à la création d’un compte il obtient les droits utilisateurs. 
+L’administrateur peur modérer les forums et accéder à la liste des utilisateurs inscrits.
