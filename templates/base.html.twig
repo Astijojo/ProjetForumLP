@@ -14,8 +14,8 @@
     </head>
     <body>
         {% block body %}
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand" href="/">Accueil</a>
+            <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" href="/">Fan2Skate</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,18 +25,17 @@
                     </ul>
                         <div class="btn-toolbar">
                             {% if app.user.username is defined %}
-                            <button type="button" class="btn btn-dark mr-3" disabled>{{ app.user.username }}</button>
+                            <button type="button" class="nav-item btn btn-dark mr-3" disabled>{{ app.user.username }}</button>
                             {% for role in app.user.roles %}
                                 {% if role == "ROLE_USER" %}
-                                    <a href="/profile" type="button" class="btn btn-secondary mr-3">Profil</a>
                                 {% elseif role == "ROLE_ADMIN" %}
-                                    <a href="/admin" type="button" class="btn btn-success mr-3">Administration</a>
+                                    <a href="/admin" type="button" class="nav-item btn btn-success mr-3">Administration</a>
                                 {% endif %}
                             {% endfor %}
-                            <a class="btn btn-primary" href="/logout" role="button"">Se déconnecter</a>
+                            <a class="nav-item btn btn-primary" href="/logout" role="button"">Se déconnecter</a>
                             {% else %}
                                 <button type="button" class="btn btn-dark mr-3" disabled>Invité</button>
-                                <a class="btn btn-primary" href="/login" role="button"">Se connecter</a>
+                                <a class="nav-item btn btn-primary" href="/login" role="button"">Se connecter</a>
                             {% endif %}
                         </div>
                 </div>
