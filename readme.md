@@ -3,7 +3,7 @@
 ## Plan du site
 
 1. Accueil catégories  
-1.1 Sujets → Liste des sujets  
+1.1 Sujets
 1.1.1 Messages  
 2. Accueil administration  
 2.2 Liste des utilisateurs  
