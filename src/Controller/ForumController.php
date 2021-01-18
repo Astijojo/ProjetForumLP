@@ -6,8 +6,8 @@ use App\Entity\Categorie;
 use App\Entity\Message;
 use App\Entity\Topic;
 use App\Repository\MessageRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -38,7 +38,8 @@ class ForumController extends AbstractController
     /**
      * @Route("/categorie/{idCategorie}", name="categorie")
      */
-    public function showPost($idCategorie, Request $request, EntityManagerInterface $manager){
+    public function showPost($idCategorie, Request $request){
+        $manager = $this->getDoctrine()->getManager();
         $repo = $this->getDoctrine()->getRepository(Topic::class);
         $topics = $repo->findBy(["idCate" => $idCategorie]);
 
@@ -72,7 +73,8 @@ class ForumController extends AbstractController
     /**
      *@Route("/topic/{idTopic}", name="topic")
      */
-    public function showMessage($idTopic, Request $request, EntityManagerInterface $manager){
+    public function showMessage($idTopic, Request $request){
+        $manager = $this->getDoctrine()->getManager();
         $repo = $this->getDoctrine()->getRepository(Message::class);
         $topic = $this->getDoctrine()->getRepository(Topic::class)->findBy(["id" => $idTopic]);
         $messages = $repo->findBy(["idTopic" => $idTopic]);
@@ -112,18 +114,34 @@ class ForumController extends AbstractController
         return $this->render('profile/index.html.twig');
     }
 
-    /**
-     *@Route("/topic/supprimer/{idMessage}", name="supprimer_message")
+  /**
+     * @Route("/supprimer/{id}", name="supprimer_message")
+     * @param int $id
+     * @return Response
      */
-    public function supprimerMessage(Message $message){
-        $em = $this->getDoctrine()->getManager(); 
-        $em->remove($message);
+    public function supprimerMessage(int $id){
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository(Message::class)->findOneBy(['id' => $id]);
+        $em->remove($entity);
         $em->flush();
-        
-        return $this->render('forum/delete.html.twig',[
-            'em' => $em
-        ]);
+        return $this->redirectToRoute('topic', ['idTopic' => $entity->getIdTopic()]);
     }
 
+    /**
+     * @Route("/supprimerTopic/{id}", name="supprimer_topic")
+     * @param int $id
+     * @return Response
+     */
+    public function supprimerTopic(int $id){
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository(Topic::class)->findOneBy(['id' => $id]);
+        $message = $em->getRepository(Message::class)->findBy(['idTopic' => $id]);
+        for($i=0; $i < count($message); $i++){
+            $em->remove($message[$i]);
+        }
+        $em->remove($entity);
+        $em->flush();
+        return $this->redirectToRoute('categorie', ['idCategorie' => $entity->getIdCate()]);
+    }
 
 }
