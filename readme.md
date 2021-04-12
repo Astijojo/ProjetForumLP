@@ -1,4 +1,4 @@
-# Projet SYmfony "ProjetForumLP" par Jonathan Morganti et Dorian Pelletier
+# Projet Symfony "ProjetForumLP" par Jonathan Morganti et Dorian Pelletier
 
 ## Plan du site
 
